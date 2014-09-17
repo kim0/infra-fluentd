@@ -78,7 +78,7 @@
 
 ## Forwarding
 ## match tag=system.** and forward to another td-agent server
-<match system.**>
+<match **>
   type forward
   host {{ tdaggr_primary }}
   # secondary host is optional
