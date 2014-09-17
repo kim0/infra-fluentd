@@ -1,7 +1,7 @@
 ---
 - hosts: all
   vars:
-    td-agent-aggr: true  # True => aggregator mode, False => Log shipping mode
+    td_agent_aggr: false  # True => aggregator mode, False => Log shipping mode
     tdaggr_primary: "1.2.3.4"
     tdaggr_secondary: "5.6.7.8"
     tailfiles:
@@ -10,6 +10,11 @@
         format: apache2  # Optional, defaults to none
       /var/log/dmesg:
         tag: dmesg
+    s3_path: /foo
+    aws_key_id: AK
+    aws_sec_key: AK
+    s3_bucket: poundbay_whateva_that_is
+    s3_endpoint: s3.amazonaws.com
 
   roles:
     - tdagentclient
