@@ -1,0 +1,3 @@
+[submodule "roles/ansible-fluentd"]
+	path = roles/ansible-fluentd
+	url = https://github.com/kim0/ansible-fluentd
