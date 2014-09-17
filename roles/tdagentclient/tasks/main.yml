@@ -2,5 +2,12 @@
 # tasks file for infra-fluentd
 - name: Setting up the td-agent.conf
   template: src=td-agent.conf.j2 dest=/etc/td-agent/td-agent.conf
+  when: not td-agent-aggr
+  notify:
+    - restart td-agent after conf change
+
+- name: Setting up the td-agent.conf
+  template: src=td-agent-aggr.conf.j2 dest=/etc/td-agent/td-agent.conf
+  when: td-agent-aggr
   notify:
     - restart td-agent after conf change

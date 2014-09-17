@@ -1,12 +1,13 @@
 ---
 - hosts: all
   vars:
+    td-agent-aggr: true  # True => aggregator mode, False => Log shipping mode
     tdaggr_primary: "1.2.3.4"
     tdaggr_secondary: "5.6.7.8"
     tailfiles:
       /var/log/bootstrap.log:
         tag: bootstrap
-        format: apache2
+        format: apache2  # Optional, defaults to none
       /var/log/dmesg:
         tag: dmesg
 
