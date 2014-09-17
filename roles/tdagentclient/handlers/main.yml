@@ -1,0 +1,4 @@
+---
+# handlers file for infra-fluentd
+- name: restart td-agent after conf change
+  service: name=td-agent state=restarted enabled=yes

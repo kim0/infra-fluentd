@@ -1,0 +1,6 @@
+---
+# tasks file for infra-fluentd
+- name: Setting up the td-agent.conf
+  template: src=td-agent.conf.j2 dest=/etc/td-agent/td-agent.conf
+  notify:
+    - restart td-agent after conf change
