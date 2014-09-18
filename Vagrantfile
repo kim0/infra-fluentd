@@ -11,14 +11,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/trusty64"
+  config.hostmanager.enabled = true # Must install: vagrant plugin install vagrant-hostmanager
+
   config.vm.define "logshipper" do |logshipper|
+    logshipper.vm.network :private_network, :ip => '10.20.1.2'
     config.vm.host_name = "logshipper.vm"
   end
 
   config.vm.define "aggr" do |aggr|
+    aggr.vm.network :private_network, :ip => '10.20.1.3'
     config.vm.host_name = "aggr.vm"
   end
-  #config.vm.network :private_network, ip: "192.168.111.222"
 
   config.vm.provision :ansible do |ansible|
     ansible.playbook = "site.yml"
